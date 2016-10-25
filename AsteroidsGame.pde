@@ -1,15 +1,52 @@
-//your variable declarations here
+SpaceShip neverTellMeTheOdds;
 public void setup() 
 {
-  //your code here
+  size(1000,1000);
+  neverTellMeTheOdds = new SpaceShip();
 }
 public void draw() 
 {
-  //your code here
+  background(0);
+  neverTellMeTheOdds.show();
 }
-class SpaceShip //extends Floater  
+  
+class SpaceShip extends Floater  
 {   
-    //your code here
+    SpaceShip(){
+      corners = 7;
+      xCorners = new int[corners];
+      yCorners = new int[corners];
+      xCorners[0] = 20;
+      yCorners[0] = 0;
+      xCorners[1] = 15;
+      yCorners[1] = -5;
+      xCorners[2] = 0;
+      yCorners[2] = -5;
+      xCorners[3] = -10;
+      yCorners[3] = -15;
+      xCorners[4] = -10;
+      yCorners[4] = 15;
+      xCorners[5] = 0;
+      yCorners[5] = 5;
+      xCorners[6] = 15;
+      yCorners[6] = 5;
+      myColor = color(132, 80, 80);
+      myCenterX = 500;
+      myCenterY = 500;
+      myDirectionX = 0;
+      myDirectionY = 0;
+      myPointDirection = 0;
+    }
+    public void setX(int x){myCenterX = x;}
+    public void setY(int y){myCenterY = y;}
+    public int getX(){return (int)myCenterX;}
+    public int getY(){return (int)myCenterY;}
+    public void setDirectionX(double x){myDirectionX = x;}   
+    public double getDirectionX(){return myDirectionX;}   
+    public void setDirectionY(double y){myDirectionY = y;} 
+    public double getDirectionY(){return myDirectionY;}
+    public void setPointDirection(int degrees){myPointDirection = degrees;}  
+    public double getPointDirection(){return myPointDirection;}
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
@@ -87,4 +124,25 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }   
 } 
+public void keyPressed(){
+  if (key == 'f'){
+    neverTellMeTheOdds.accelerate(1);
+  }
+  if (key == 's'){
+    neverTellMeTheOdds.accelerate(-1);
+  }
+  if (key == 'd'){
+    neverTellMeTheOdds.setPointDirection((int)(Math.random()*360));
+    neverTellMeTheOdds.setDirectionY(0);
+    neverTellMeTheOdds.setDirectionX(0);
+    neverTellMeTheOdds.setX((int)(Math.random()*1000));
+    neverTellMeTheOdds.setY((int)(Math.random()*1000));
+  }
+  if (key == 'r'){
+    neverTellMeTheOdds.rotate(5);
+  }
+  if (key == 'w'){
+    neverTellMeTheOdds.rotate(-5);
+  }
+}
 
