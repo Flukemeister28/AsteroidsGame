@@ -1,4 +1,5 @@
 SpaceShip neverTellMeTheOdds;
+Stars[] ursaMajor = new Stars[100];
 public void setup() 
 {
   size(1000,1000);
@@ -8,8 +9,24 @@ public void draw()
 {
   background(0);
   neverTellMeTheOdds.show();
+  neverTellMeTheOdds.move();
+  for (i = 0; i < ursaMajor.length; i++)
+  {
+    ursaMajor[i].show();
+  }
 }
-  
+public class Stars
+{
+  private int myX,myY;
+  public Stars(){
+    myX = (int)(Math.random()*1000);
+    myY = (int)(Math.random()*1000);
+  }
+  public void show(){
+    fill(255);
+    ellipse(myX,myY,1,1);
+  }
+}
 class SpaceShip extends Floater  
 {   
     SpaceShip(){
@@ -48,6 +65,7 @@ class SpaceShip extends Floater
     public void setPointDirection(int degrees){myPointDirection = degrees;}  
     public double getPointDirection(){return myPointDirection;}
 }
+class Stars
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
@@ -68,12 +86,10 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   abstract public void setPointDirection(int degrees);   
   abstract public double getPointDirection(); 
 
-  //Accelerates the floater in the direction it is pointing (myPointDirection)   
   public void accelerate (double dAmount)   
   {          
-    //convert the current direction the floater is pointing to radians    
-    double dRadians =myPointDirection*(Math.PI/180);     
-    //change coordinates of direction of travel    
+       
+    double dRadians =myPointDirection*(Math.PI/180);       
     myDirectionX += ((dAmount) * Math.cos(dRadians));    
     myDirectionY += ((dAmount) * Math.sin(dRadians));       
   }   
@@ -126,10 +142,10 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
 } 
 public void keyPressed(){
   if (key == 'f'){
-    neverTellMeTheOdds.accelerate(1);
+    neverTellMeTheOdds.accelerate(0.5);
   }
   if (key == 's'){
-    neverTellMeTheOdds.accelerate(-1);
+    neverTellMeTheOdds.accelerate(-0.5);
   }
   if (key == 'd'){
     neverTellMeTheOdds.setPointDirection((int)(Math.random()*360));
@@ -139,10 +155,10 @@ public void keyPressed(){
     neverTellMeTheOdds.setY((int)(Math.random()*1000));
   }
   if (key == 'r'){
-    neverTellMeTheOdds.rotate(5);
+    neverTellMeTheOdds.rotate(8);
   }
   if (key == 'w'){
-    neverTellMeTheOdds.rotate(-5);
+    neverTellMeTheOdds.rotate(-8);
   }
 }
 
