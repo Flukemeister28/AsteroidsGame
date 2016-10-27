@@ -1,6 +1,6 @@
 SpaceShip neverTellMeTheOdds;
 Stars[] ursaMajor = new Stars[5000];
-Asteroids[] belt = new Asteroids[13];
+Asteroids[] belt = new Asteroids[20];
 public void setup() 
 {
   size(1000,1000);
