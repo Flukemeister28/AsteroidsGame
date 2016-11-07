@@ -1,9 +1,9 @@
 SpaceShip neverTellMeTheOdds;
-Stars[] ursaMajor = new Stars[5000];
-Asteroids[] belt = new Asteroids[20];
+Stars[] ursaMajor = new Stars[500];
+Asteroids[] belt = new Asteroids[15];
 public void setup() 
 {
-  size(1000,1000);
+  size(500,500);
   neverTellMeTheOdds = new SpaceShip();
   for(int i = 0; i < ursaMajor.length; i++){
     ursaMajor[i] = new Stars();
@@ -32,8 +32,8 @@ public class Stars
 {
   private int myX,myY;
   public Stars(){
-    myX = (int)(Math.random()*1000);
-    myY = (int)(Math.random()*1000);
+    myX = (int)(Math.random()*500);
+    myY = (int)(Math.random()*500);
   }
   public void show(){
     fill(255);
@@ -62,8 +62,8 @@ class SpaceShip extends Floater
       xCorners[6] = 15;
       yCorners[6] = 5;
       myColor = color(132, 80, 80);
-      myCenterX = 500;
-      myCenterY = 500;
+      myCenterX = 250;
+      myCenterY = 250;
       myDirectionX = 0;
       myDirectionY = 0;
       myPointDirection = 0;
@@ -164,8 +164,8 @@ public void keyPressed(){
     neverTellMeTheOdds.setPointDirection((int)(Math.random()*360));
     neverTellMeTheOdds.setDirectionY(0);
     neverTellMeTheOdds.setDirectionX(0);
-    neverTellMeTheOdds.setX((int)(Math.random()*1000));
-    neverTellMeTheOdds.setY((int)(Math.random()*1000));
+    neverTellMeTheOdds.setX((int)(Math.random()*500));
+    neverTellMeTheOdds.setY((int)(Math.random()*500));
   }
   if (key == 'r'){
     neverTellMeTheOdds.rotate(8);
@@ -209,11 +209,11 @@ class Asteroids extends Floater
     yCorners[9] = -1 * mySize;
     yCorners[10] = -2 * mySize;
     yCorners[11] = -4 * mySize;
-    myColor = color(10);
-    myCenterX = (int)(Math.random()*1000);
-    myCenterY = (int)(Math.random()*1000);
-    myDirectionX = (int)(Math.random()*6)-3;
-    myDirectionY = (int)(Math.random()*6)-3;
+    myColor = color(127);
+    myCenterX = (int)(Math.random()*500);
+    myCenterY = (int)(Math.random()*500);
+    myDirectionX = (int)(Math.random()*4)-2;
+    myDirectionY = (int)(Math.random()*4)-2;
     myPointDirection = (int)(Math.random()*360);
   }
     public void setX(int x){myCenterX = x;}
