@@ -1,6 +1,6 @@
 SpaceShip neverTellMeTheOdds;
-Stars[] ursaMajor = new Stars[500];
-Asteroids[] belt = new Asteroids[15];
+Stars[] ursaMajor = new Stars[300];
+ArrayList <Asteroids> belt = new ArrayList <Asteroids>();
 public void setup() 
 {
   size(500,500);
@@ -8,8 +8,8 @@ public void setup()
   for(int i = 0; i < ursaMajor.length; i++){
     ursaMajor[i] = new Stars();
   }
-  for (int i = 0; i < belt.length; i++){
-    belt[i] = new Asteroids();
+  for (int i = 0; i < 30; i++){
+    belt.add(new Asteroids());
   }
 }
 public void draw() 
@@ -21,12 +21,15 @@ public void draw()
   }
   neverTellMeTheOdds.show();
   neverTellMeTheOdds.move();
-  for (int i = 0; i < belt.length; i++){
-    belt[i].show();
+  for (int i = 0; i < belt.size(); i++){
+    belt.get(i).show();
   }
-  for (int i = 0; i < belt.length; i++){
-    belt[i].move();
+  for (int i = 0; i < belt.size(); i++){
+    belt.get(i).move();
   }
+  for (int i = 0; i < belt.size(); i++)
+      if (dist(neverTellMeTheOdds.getX(),neverTellMeTheOdds.getY(),belt.get(i).getX(),belt.get(i).getY()) < 45)
+          belt.remove(i);
 }
 public class Stars
 {
@@ -155,10 +158,10 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
 } 
 public void keyPressed(){
   if (key == 'f'){
-    neverTellMeTheOdds.accelerate(0.5);
-  }
+    neverTellMeTheOdds.accelerate(0.2);
+  } 
   if (key == 's'){
-    neverTellMeTheOdds.accelerate(-0.5);
+    neverTellMeTheOdds.accelerate(-0.2);
   }
   if (key == 'd'){
     neverTellMeTheOdds.setPointDirection((int)(Math.random()*360));
