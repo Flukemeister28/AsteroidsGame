@@ -1,13 +1,13 @@
 public class Bullet extends Floater
 {
-	private float myCenterX,myCenterY,myDirectionX,myDirectionY;
+	private double myCenterX,myCenterY,myDirectionX,myDirectionY;
 	public Bullet(SpaceShip neverTellMeTheOdds){
 		myCenterX = neverTellMeTheOdds.getX();
 		myCenterY = neverTellMeTheOdds.getY();
 		myPointDirection = neverTellMeTheOdds.getPointDirection();
 		double dRadians =myPointDirection*(Math.PI/180);
-		myDirectionX = (5*Math.cos(dRadians) + (double)neverTellMeTheOdds.getDirectionX());
-		myDirectionY = (5*Math.sin(dRadians) + neverTellMeTheOdds.getDirectionY());
+		myDirectionX = ((float)(20*Math.cos(dRadians)) + (float)(neverTellMeTheOdds.getDirectionX()));
+		myDirectionY = ((float)(20*Math.sin(dRadians)) + (float)(neverTellMeTheOdds.getDirectionY()));
 	}
 	 public void setX(int x){myCenterX = x;}
     public void setY(int y){myCenterY = y;}
@@ -22,11 +22,16 @@ public class Bullet extends Floater
 	public void show(){
 		fill(19, 160, 31);
 		noStroke();
-		ellipse(myCenterX,myCenterY,5,5);
+		ellipse((float)myCenterX,(float)myCenterY,(float)5,(float)5);
 	}
 	public void move()
 	{
 		myCenterX += myDirectionX;
 		myCenterY += myDirectionY;
+		if (myCenterX > 500){myCenterX = 0;}
+		if (myCenterY > 500){myCenterY = 0;}
+		if (myCenterX < 0){myCenterX = 500;}
+		if (myCenterY < 0){myCenterY = 500;}
 	}
+	
 }

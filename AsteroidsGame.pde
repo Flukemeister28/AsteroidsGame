@@ -1,10 +1,12 @@
 SpaceShip neverTellMeTheOdds;
 Stars[] ursaMajor = new Stars[300];
 ArrayList <Asteroids> belt = new ArrayList <Asteroids>();
+ArrayList <Bullet> WMDsInHere = new ArrayList <Bullet>();
 public void setup() 
 {
   size(500,500);
   neverTellMeTheOdds = new SpaceShip();
+  for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.add(new Bullet());}
   for(int i = 0; i < ursaMajor.length; i++){
     ursaMajor[i] = new Stars();
   }
@@ -20,6 +22,8 @@ public void draw()
     ursaMajor[i].show();
   }
   neverTellMeTheOdds.show();
+  for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.get(i).show();}
+    for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.get(i).move();}
   neverTellMeTheOdds.move();
   for (int i = 0; i < belt.size(); i++){
     belt.get(i).show();
@@ -157,24 +161,27 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   }   
 } 
 public void keyPressed(){
-  if (key == 'f'){
+  if (key == 'w'){
     neverTellMeTheOdds.accelerate(0.2);
   } 
   if (key == 's'){
     neverTellMeTheOdds.accelerate(-0.2);
   }
-  if (key == 'd'){
+  if (key == 'f'){
     neverTellMeTheOdds.setPointDirection((int)(Math.random()*360));
     neverTellMeTheOdds.setDirectionY(0);
     neverTellMeTheOdds.setDirectionX(0);
     neverTellMeTheOdds.setX((int)(Math.random()*500));
     neverTellMeTheOdds.setY((int)(Math.random()*500));
   }
-  if (key == 'r'){
+  if (key == 'd'){
     neverTellMeTheOdds.rotate(8);
   }
-  if (key == 'w'){
+  if (key == 'a'){
     neverTellMeTheOdds.rotate(-8);
+  }
+  if (key == 'r'){
+    WMDsUpInThisMFckr.add(neverTellMeTheOdds);
   }
 }
 
