@@ -6,7 +6,7 @@ public void setup()
 {
   size(500,500);
   neverTellMeTheOdds = new SpaceShip();
-  for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.add(new Bullet());}
+  for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.add(new Bullet(neverTellMeTheOdds));}
   for(int i = 0; i < ursaMajor.length; i++){
     ursaMajor[i] = new Stars();
   }
@@ -181,7 +181,7 @@ public void keyPressed(){
     neverTellMeTheOdds.rotate(-8);
   }
   if (key == 'r'){
-    WMDsUpInThisMFckr.add(neverTellMeTheOdds);
+    WMDsInHere.add(new Bullet(neverTellMeTheOdds));
   }
 }
 

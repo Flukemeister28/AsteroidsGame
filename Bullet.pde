@@ -9,7 +9,7 @@ public class Bullet extends Floater
 		myDirectionX = ((float)(20*Math.cos(dRadians)) + (float)(neverTellMeTheOdds.getDirectionX()));
 		myDirectionY = ((float)(20*Math.sin(dRadians)) + (float)(neverTellMeTheOdds.getDirectionY()));
 	}
-	 public void setX(int x){myCenterX = x;}
+	public void setX(int x){myCenterX = x;}
     public void setY(int y){myCenterY = y;}
     public int getX(){return (int)myCenterX;}
     public int getY(){return (int)myCenterY;}
