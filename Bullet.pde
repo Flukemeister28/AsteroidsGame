@@ -6,8 +6,8 @@ public class Bullet extends Floater
 		myCenterY = neverTellMeTheOdds.getY();
 		myPointDirection = neverTellMeTheOdds.getPointDirection();
 		double dRadians =myPointDirection*(Math.PI/180);
-		myDirectionX = ((float)(20*Math.cos(dRadians)) + (float)(neverTellMeTheOdds.getDirectionX()));
-		myDirectionY = ((float)(20*Math.sin(dRadians)) + (float)(neverTellMeTheOdds.getDirectionY()));
+		myDirectionX = ((float)(6*Math.cos(dRadians)) + (float)(neverTellMeTheOdds.getDirectionX()));
+		myDirectionY = ((float)(6*Math.sin(dRadians)) + (float)(neverTellMeTheOdds.getDirectionY()));
 	}
 	public void setX(int x){myCenterX = x;}
     public void setY(int y){myCenterY = y;}
@@ -28,10 +28,6 @@ public class Bullet extends Floater
 	{
 		myCenterX += myDirectionX;
 		myCenterY += myDirectionY;
-		if (myCenterX > 500){myCenterX = 0;}
-		if (myCenterY > 500){myCenterY = 0;}
-		if (myCenterX < 0){myCenterX = 500;}
-		if (myCenterY < 0){myCenterY = 500;}
 	}
 	
 }

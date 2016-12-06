@@ -4,7 +4,7 @@ ArrayList <Asteroids> belt = new ArrayList <Asteroids>();
 ArrayList <Bullet> WMDsInHere = new ArrayList <Bullet>();
 public void setup() 
 {
-  size(500,500);
+  size(750,750);
   neverTellMeTheOdds = new SpaceShip();
   for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.add(new Bullet(neverTellMeTheOdds));}
   for(int i = 0; i < ursaMajor.length; i++){
@@ -21,9 +21,9 @@ public void draw()
   {
     ursaMajor[i].show();
   }
-  neverTellMeTheOdds.show();
   for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.get(i).show();}
-    for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.get(i).move();}
+  for (int i = 0; i < WMDsInHere.size(); i++){WMDsInHere.get(i).move();}
+  neverTellMeTheOdds.show();
   neverTellMeTheOdds.move();
   for (int i = 0; i < belt.size(); i++){
     belt.get(i).show();
@@ -32,8 +32,16 @@ public void draw()
     belt.get(i).move();
   }
   for (int i = 0; i < belt.size(); i++)
-      if (dist(neverTellMeTheOdds.getX(),neverTellMeTheOdds.getY(),belt.get(i).getX(),belt.get(i).getY()) < 45)
+      if (dist(neverTellMeTheOdds.getX(),neverTellMeTheOdds.getY(),belt.get(i).getX(),belt.get(i).getY()) < 25)
           belt.remove(i);
+  for (int i = 0; i < WMDsInHere.size(); i++){
+      for (int z = 0; z < belt.size(); z++){
+        if (dist(WMDsInHere.get(i).getX(),WMDsInHere.get(i).getY(),belt.get(z).getX(),belt.get(z).getY()) < 25){
+            belt.remove(z);
+            WMDsInHere.remove(i);
+            break;}
+           }
+        }
 }
 public class Stars
 {
