@@ -1,6 +1,6 @@
 public class Bullet extends Floater
 {
-	private double myCenterX,myCenterY,myDirectionX,myDirectionY;
+	//private double myCenterX,myCenterY,myDirectionX,myDirectionY;
 	public Bullet(SpaceShip neverTellMeTheOdds){
 		myCenterX = neverTellMeTheOdds.getX();
 		myCenterY = neverTellMeTheOdds.getY();

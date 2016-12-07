@@ -182,17 +182,16 @@ public void keyPressed(){
     neverTellMeTheOdds.setX((int)(Math.random()*500));
     neverTellMeTheOdds.setY((int)(Math.random()*500));
   }
-  if (key == 'd'){
+  if (key == 'e'){
     neverTellMeTheOdds.rotate(8);
   }
-  if (key == 'a'){
+  if (key == 'q'){
     neverTellMeTheOdds.rotate(-8);
   }
-  if (key == 'r'){
-    WMDsInHere.add(new Bullet(neverTellMeTheOdds));
-  }
 }
-
+public void mousePressed(){
+  WMDsInHere.add(new Bullet(neverTellMeTheOdds));
+}
 
 class Asteroids extends Floater
 {
