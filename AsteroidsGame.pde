@@ -47,8 +47,8 @@ public class Stars
 {
   private int myX,myY;
   public Stars(){
-    myX = (int)(Math.random()*500);
-    myY = (int)(Math.random()*500);
+    myX = (int)(Math.random()*750);
+    myY = (int)(Math.random()*750);
   }
   public void show(){
     fill(255);
