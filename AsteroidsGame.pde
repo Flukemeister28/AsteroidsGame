@@ -36,7 +36,7 @@ public void draw()
           belt.remove(i);
   for (int i = 0; i < WMDsInHere.size(); i++){
       for (int z = 0; z < belt.size(); z++){
-        if (dist(WMDsInHere.get(i).getX(),WMDsInHere.get(i).getY(),belt.get(z).getX(),belt.get(z).getY()) < 25){
+        if (dist(WMDsInHere.get(i).getX(),WMDsInHere.get(i).getY(),belt.get(z).getX(),belt.get(z).getY()) < 6*belt.get(z).getSize()){
             belt.remove(z);
             WMDsInHere.remove(i);
             break;}
@@ -233,6 +233,7 @@ class Asteroids extends Floater
     myDirectionY = (int)(Math.random()*4)-2;
     myPointDirection = (int)(Math.random()*360);
   }
+    public void getSize(int size){mySize = size;}
     public void setX(int x){myCenterX = x;}
     public void setY(int y){myCenterY = y;}
     public int getX(){return (int)myCenterX;}
